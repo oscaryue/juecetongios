@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		409DE006216D10670046C0C9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 409DE005216D10670046C0C9 /* logo.png */; };
 		410BCE26212F117600BBB8A8 /* JCTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410BCE25212F117600BBB8A8 /* JCTWebViewController.m */; };
 		4155BD062102F50E004B54C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4155BD052102F50E004B54C0 /* AppDelegate.m */; };
 		4155BD092102F50E004B54C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4155BD082102F50E004B54C0 /* ViewController.m */; };
@@ -14,9 +15,13 @@
 		4155BD0E2102F511004B54C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4155BD0D2102F511004B54C0 /* Assets.xcassets */; };
 		4155BD112102F511004B54C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4155BD0F2102F511004B54C0 /* LaunchScreen.storyboard */; };
 		4155BD142102F511004B54C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4155BD132102F511004B54C0 /* main.m */; };
+		88E6592527531E65C06B85A4 /* libPods-juecetong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BAF86B24E3D516F19A21B8 /* libPods-juecetong.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32F9B6BE4731B919A0B75A80 /* Pods-juecetong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-juecetong.release.xcconfig"; path = "Pods/Target Support Files/Pods-juecetong/Pods-juecetong.release.xcconfig"; sourceTree = "<group>"; };
+		409DE005216D10670046C0C9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		40F40BE0D14DEC5520B79F6C /* Pods-juecetong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-juecetong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-juecetong/Pods-juecetong.debug.xcconfig"; sourceTree = "<group>"; };
 		410BCE24212F117600BBB8A8 /* JCTWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCTWebViewController.h; sourceTree = "<group>"; };
 		410BCE25212F117600BBB8A8 /* JCTWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCTWebViewController.m; sourceTree = "<group>"; };
 		4155BD012102F50E004B54C0 /* juecetong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = juecetong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +34,7 @@
 		4155BD102102F511004B54C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4155BD122102F511004B54C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4155BD132102F511004B54C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B5BAF86B24E3D516F19A21B8 /* libPods-juecetong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-juecetong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +42,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88E6592527531E65C06B85A4 /* libPods-juecetong.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3491B19F4352E030CAA20A42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40F40BE0D14DEC5520B79F6C /* Pods-juecetong.debug.xcconfig */,
+				32F9B6BE4731B919A0B75A80 /* Pods-juecetong.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B4955B6A93E5019F5E0162A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5BAF86B24E3D516F19A21B8 /* libPods-juecetong.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4155BCF82102F50E004B54C0 = {
 			isa = PBXGroup;
 			children = (
 				4155BD032102F50E004B54C0 /* juecetong */,
 				4155BD022102F50E004B54C0 /* Products */,
+				3491B19F4352E030CAA20A42 /* Pods */,
+				3B4955B6A93E5019F5E0162A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +87,7 @@
 		4155BD032102F50E004B54C0 /* juecetong */ = {
 			isa = PBXGroup;
 			children = (
+				409DE005216D10670046C0C9 /* logo.png */,
 				4155BD042102F50E004B54C0 /* AppDelegate.h */,
 				4155BD052102F50E004B54C0 /* AppDelegate.m */,
 				4155BD072102F50E004B54C0 /* ViewController.h */,
@@ -83,6 +110,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4155BD172102F511004B54C0 /* Build configuration list for PBXNativeTarget "juecetong" */;
 			buildPhases = (
+				2FC9C756841EAC17140879F2 /* [CP] Check Pods Manifest.lock */,
 				4155BCFD2102F50E004B54C0 /* Sources */,
 				4155BCFE2102F50E004B54C0 /* Frameworks */,
 				4155BCFF2102F50E004B54C0 /* Resources */,
@@ -133,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409DE006216D10670046C0C9 /* logo.png in Resources */,
 				4155BD112102F511004B54C0 /* LaunchScreen.storyboard in Resources */,
 				4155BD0E2102F511004B54C0 /* Assets.xcassets in Resources */,
 				4155BD0C2102F50E004B54C0 /* Main.storyboard in Resources */,
@@ -140,6 +169,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FC9C756841EAC17140879F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-juecetong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4155BCFD2102F50E004B54C0 /* Sources */ = {
@@ -287,8 +337,10 @@
 		};
 		4155BD182102F511004B54C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F40BE0D14DEC5520B79F6C /* Pods-juecetong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EESSLBHYX2;
@@ -306,8 +358,10 @@
 		};
 		4155BD192102F511004B54C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32F9B6BE4731B919A0B75A80 /* Pods-juecetong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EESSLBHYX2;

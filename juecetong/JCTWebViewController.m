@@ -8,6 +8,7 @@
 
 #import "JCTWebViewController.h"
 #import <WebKit/WebKit.h>
+#import "WXApi.h"
 
 @interface JCTWebViewController ()<WKUIDelegate,WKNavigationDelegate,UIWebViewDelegate>
 @property (strong, nonatomic) WKWebView *webview;
@@ -107,6 +108,7 @@
     decisionHandler(WKNavigationActionPolicyAllow);
     //不允许跳转
     //decisionHandler(WKNavigationActionPolicyCancel);
+    [self sendLinkContent2Friend:(@"地产决策通") :(@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。"):(@"http://tech.qq.com/zt2012/tmtdecode/252.htm")];
 }
 #pragma mark - WKUIDelegate
 //创建一个新的WebView
@@ -130,5 +132,25 @@
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     NSLog(@"%@",message);
     completionHandler();
+}
+
+- (void) sendLinkContent2Friend : (NSString*)title : (NSString*)description : (NSString*)url
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
+    message.description = description;
+    [message setThumbImage:[UIImage imageNamed:@"logo.png"]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = url;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    
+    [WXApi sendReq:req];
 }
 @end

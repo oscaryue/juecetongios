@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WXApiObject.h"
 
 @interface JCTWebViewController : UIViewController
-
+- (void) sendLinkContent2Friend : (NSString*)title : (NSString*)description : (NSString*)url;
 @property (nonatomic, strong) NSURLRequest *request;
+
 @end
