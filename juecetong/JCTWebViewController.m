@@ -108,7 +108,7 @@
     decisionHandler(WKNavigationActionPolicyAllow);
     //不允许跳转
     //decisionHandler(WKNavigationActionPolicyCancel);
-    [self sendLinkContent2Friend:(@"地产决策通") :(@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。"):(@"http://tech.qq.com/zt2012/tmtdecode/252.htm")];
+//    [self sendLinkContent2Friend:(@"地产决策通") :(@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。"):(@"http://tech.qq.com/zt2012/tmtdecode/252.htm")];
 }
 #pragma mark - WKUIDelegate
 //创建一个新的WebView

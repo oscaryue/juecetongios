@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>Sharing</title>
+            <script>
+                function share2Timeline(){
+                    android.shareUrl2Timeline("http://www.zjol.com.cn", "浙江在线", "地产决策通App");
+                }
+            function share2Friend(){
+                android.shareUrl2Friend("http://www.zjol.com.cn", "浙江在线", "地产决策通App");
+            }
+            </script>
+    </head>
+    <body>
+        <input type="button" id="button1" value="Timeline" onclick="share2Timeline()"></input>
+        <input type="button" id="button2" value="Friend" onclick="share2Friend()"></input>
+    </body>
+</html>
