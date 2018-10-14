@@ -79,24 +79,24 @@
         WXMediaMessage *msg = temp.message;
         
         //显示微信传过来的内容
-        WXAppExtendObject *obj = msg.mediaObject;
-        
-        NSString *strTitle = [NSString stringWithFormat:@"微信请求App显示内容"];
-        NSString *strMsg = [NSString stringWithFormat:@"标题：%@ \n内容：%@ \n附带信息：%@ \n缩略图:%u bytes\n\n", msg.title, msg.description, obj.extInfo, msg.thumbData.length];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
+//        WXAppExtendObject *obj = msg.mediaObject;
+//
+//        NSString *strTitle = [NSString stringWithFormat:@"微信请求App显示内容"];
+//        NSString *strMsg = [NSString stringWithFormat:@"标题：%@ \n内容：%@ \n附带信息：%@ \n缩略图:%u bytes\n\n", msg.title, msg.description, obj.extInfo, msg.thumbData.length];
+//
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
     }
     else if([req isKindOfClass:[LaunchFromWXReq class]])
     {
         //从微信启动App
-        NSString *strTitle = [NSString stringWithFormat:@"从微信启动"];
-        NSString *strMsg = @"这是从微信启动的消息";
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
+//        NSString *strTitle = [NSString stringWithFormat:@"从微信启动"];
+//        NSString *strMsg = @"这是从微信启动的消息";
+//
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
     }
 }
 
@@ -104,12 +104,12 @@
 {
     if([resp isKindOfClass:[SendMessageToWXResp class]])
     {
-        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
-        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
+//        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
+//        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
     }
 }
 @end

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WXApiObject.h"
 
 @interface ViewController : UIViewController
-
-
+- (void) sendLinkContent2Friend : (NSDictionary *)dic;
+- (void) sendLinkContent2Timeline : (NSDictionary *)dic;
 @end
 

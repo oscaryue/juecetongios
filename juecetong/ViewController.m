@@ -9,10 +9,11 @@
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
 #import "JCTWebViewController.h"
+#import "WXApi.h"
 
 #define kHomeURL   @"http://jct.zjol.com.cn:8084"
 
-@interface ViewController ()<WKUIDelegate,WKNavigationDelegate,UIWebViewDelegate>
+@interface ViewController ()<WKUIDelegate,WKNavigationDelegate,UIWebViewDelegate,WKScriptMessageHandler>
 @property (strong, nonatomic) WKWebView *webview;
 @end
 
@@ -37,6 +38,7 @@
 - (void)setup {
     [self.view addSubview:self.webview];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:kHomeURL]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"bc" ofType:@"html"]]];
     [self.webview loadRequest:request];
 }
 
@@ -44,6 +46,9 @@
     if (!_webview) {
         CGFloat y = [[UIApplication sharedApplication]statusBarFrame].size.height;
         _webview = [[WKWebView alloc]initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, self.view.bounds.size.height-y)];
+        [_webview.configuration.userContentController addScriptMessageHandler:self name:@"sendLinkContent2Friend"];
+        [_webview.configuration.userContentController addScriptMessageHandler:self name:@"sendLinkContent2Timeline"];
+
         _webview.UIDelegate = self;
         _webview.navigationDelegate = self;
     }
@@ -135,4 +140,70 @@
     completionHandler();
 }
 
+- (void) sendLinkContent2Friend :(NSDictionary *)dic
+{
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
+    NSString *title = [dic objectForKey:@"title"];
+    NSString *description = [dic objectForKey:@"description"];
+    NSString *url = [dic objectForKey:@"url"];
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
+    message.description = description;
+    [message setThumbImage:[UIImage imageNamed:@"logo.png"]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = url;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    
+    [WXApi sendReq:req];
+}
+
+- (void) sendLinkContent2Timeline :(NSDictionary *)dic
+{
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
+    NSString *title = [dic objectForKey:@"title"];
+    NSString *description = [dic objectForKey:@"description"];
+    NSString *url = [dic objectForKey:@"url"];
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
+    message.description = description;
+    [message setThumbImage:[UIImage imageNamed:@"logo.png"]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = url;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneTimeline;
+    
+    [WXApi sendReq:req];
+}
+
+#pragma mark  WKScriptMessageHandler delegate
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
+{
+    NSLog(@"%@ - %@", message.name, message.body);
+    if ([message.name isEqualToString:@"sendLinkContent2Friend"]) {
+        [self sendLinkContent2Friend:message.body];
+    } else if ([message.name isEqualToString:@"sendLinkContent2Timeline"]) {
+        [self sendLinkContent2Timeline:message.body];
+    }
+}
 @end

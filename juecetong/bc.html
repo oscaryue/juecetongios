@@ -5,10 +5,10 @@
             <title>Sharing</title>
             <script>
                 function share2Timeline(){
-                    android.shareUrl2Timeline("http://www.zjol.com.cn", "浙江在线", "地产决策通App");
+                    window.webkit.messageHandlers.sendLinkContent2Timeline.postMessage({title:'浙江在线',description:'地产决策通',url:'http://www.zjol.com.cn'});
                 }
             function share2Friend(){
-                android.shareUrl2Friend("http://www.zjol.com.cn", "浙江在线", "地产决策通App");
+                window.webkit.messageHandlers.sendLinkContent2Friend.postMessage({title:'浙江在线',description:'地产决策通',url:'http://www.zjol.com.cn'});
             }
             </script>
     </head>
