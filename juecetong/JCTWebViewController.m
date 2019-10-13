@@ -105,9 +105,22 @@
     
     NSLog(@"%@",navigationAction.request.URL.absoluteString);
     //允许跳转
-    decisionHandler(WKNavigationActionPolicyAllow);
+    //decisionHandler(WKNavigationActionPolicyAllow);
     //不允许跳转
     //decisionHandler(WKNavigationActionPolicyCancel);
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    NSString *string = navigationAction.request.URL.absoluteString;
+    
+    //跳转到Safari去下载
+    if ([string containsString:@"http://landprojectdata.zjtdw.com/"]) {
+        [application openURL:[NSURL URLWithString:string]];
+        // 不允许web内跳转
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
 }
 #pragma mark - WKUIDelegate
 //创建一个新的WebView
