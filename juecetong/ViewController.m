@@ -11,7 +11,8 @@
 #import "JCTWebViewController.h"
 #import "WXApi.h"
 
-#define kHomeURL   @"http://jct.zjol.com.cn:8084"
+//#define kHomeURL   @"http://jct.zjol.com.cn:8084"
+#define kHomeURL   @"http://47.99.97.17:8084“
 
 @interface ViewController ()<WKUIDelegate,WKNavigationDelegate,UIWebViewDelegate,WKScriptMessageHandler>
 @property (strong, nonatomic) WKWebView *webview;
